@@ -1,0 +1,10 @@
+{
+    "name": "Iuran RT 01 RW I",
+    "short_name": "Iuran RT 01",
+    "description": "Aplikasi Administrasi Iuran RT 01 RW I Kelurahan Penarukan",
+    "start_url": "./index.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#0d6efd",
+    "orientation": "portrait"
+}

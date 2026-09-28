@@ -1,0 +1,1037 @@
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Iuran RT 01 RW I</title>
+
+    <link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d6efd">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <h1>IURAN RT 01 RW I</h1>
+
+    <p>
+        Kelurahan Penarukan -
+        Kecamatan Kepanjen
+    </p>
+
+</header>
+
+
+
+<!-- ================= NAVIGASI ================= -->
+
+<nav class="nav">
+
+    <button
+        onclick="tampilkan('dashboard')"
+    >
+        Dashboard
+    </button>
+
+
+    <button
+        onclick="tampilkan('warga')"
+    >
+        Data Warga
+    </button>
+
+
+    <button
+        onclick="tampilkan('iuran')"
+    >
+        Input Iuran
+    </button>
+
+
+    <button
+        onclick="tampilkan('rekap')"
+    >
+        Rekap
+    </button>
+
+
+    <button
+        onclick="tampilkan('pengeluaran')"
+    >
+        Pengeluaran
+    </button>
+
+
+    <button
+        onclick="tampilkan('bukukas')"
+    >
+        📒 Buku Kas
+    </button>
+
+</nav>
+
+
+
+<main>
+
+
+<!-- ================================================= -->
+<!-- ================= DASHBOARD ===================== -->
+<!-- ================================================= -->
+
+<section
+    id="dashboard"
+    class="halaman"
+>
+
+
+    <h2>Dashboard</h2>
+
+
+    <div class="dashboard-grid">
+
+
+        <div class="card">
+
+            <h3>
+                👨‍👩‍👧‍👦 Jumlah KK
+            </h3>
+
+            <div
+                id="jumlahKK"
+                class="angka"
+            >
+                0
+            </div>
+
+            <p>
+                Jumlah kepala keluarga
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                💵 Iuran / KK
+            </h3>
+
+            <div class="angka">
+                Rp20.000
+            </div>
+
+            <p>
+                Per bulan
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                ✅ Sudah Bayar
+            </h3>
+
+            <div
+                id="sudahBayar"
+                class="angka"
+            >
+                0
+            </div>
+
+            <p>
+                Bulan berjalan
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                ❌ Belum Bayar
+            </h3>
+
+            <div
+                id="belumBayar"
+                class="angka"
+            >
+                0
+            </div>
+
+            <p>
+                Bulan berjalan
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                💰 Total Pemasukan
+            </h3>
+
+            <div
+                id="totalPemasukan"
+                class="angka"
+            >
+                Rp0
+            </div>
+
+            <p>
+                Dari pembayaran iuran
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                💸 Total Pengeluaran
+            </h3>
+
+            <div
+                id="totalPengeluaran"
+                class="angka"
+            >
+                Rp0
+            </div>
+
+            <p>
+                Pengeluaran kas RT
+            </p>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                🏦 Saldo Kas
+            </h3>
+
+            <div
+                id="saldoKas"
+                class="angka"
+            >
+                Rp0
+            </div>
+
+            <p>
+                Saldo saat ini
+            </p>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- ================= DATA WARGA ==================== -->
+<!-- ================================================= -->
+
+<section
+    id="warga"
+    class="halaman"
+    style="display:none;"
+>
+
+
+    <h2>Data Warga</h2>
+
+
+    <form
+        onsubmit="simpanWarga(event)"
+    >
+
+
+        <label>
+            Nama Kepala Keluarga
+        </label>
+
+
+        <input
+            type="text"
+            id="namaWarga"
+            placeholder="Nama kepala keluarga"
+            required
+        >
+
+
+        <label>
+            Alamat
+        </label>
+
+
+        <input
+            type="text"
+            id="alamatWarga"
+            placeholder="Alamat"
+        >
+
+
+        <label>
+            Nomor HP
+        </label>
+
+
+        <input
+            type="text"
+            id="hpWarga"
+            placeholder="Nomor HP"
+        >
+
+
+        <button type="submit">
+            Simpan Warga
+        </button>
+
+
+    </form>
+
+
+
+    <h3>
+        Daftar Warga
+    </h3>
+
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>No</th>
+
+                <th>
+                    Nama Kepala Keluarga
+                </th>
+
+                <th>
+                    Alamat
+                </th>
+
+                <th>
+                    HP
+                </th>
+
+                <th>
+                    Aksi
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody
+            id="tabelWarga"
+        ></tbody>
+
+    </table>
+
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- ================= INPUT IURAN =================== -->
+<!-- ================================================= -->
+
+<section
+    id="iuran"
+    class="halaman"
+    style="display:none;"
+>
+
+
+    <h2>
+        Input Iuran
+    </h2>
+
+
+
+    <form
+        onsubmit="simpanIuran(event)"
+    >
+
+
+        <label>
+            Nama Warga
+        </label>
+
+
+        <select
+            id="wargaIuran"
+            required
+        >
+
+            <option value="">
+                -- Pilih Warga --
+            </option>
+
+        </select>
+
+
+
+        <label>
+            Bulan
+        </label>
+
+
+        <select
+            id="bulanIuran"
+            required
+        >
+
+            <option value="">
+                -- Pilih Bulan --
+            </option>
+
+            <option value="1">
+                Januari
+            </option>
+
+            <option value="2">
+                Februari
+            </option>
+
+            <option value="3">
+                Maret
+            </option>
+
+            <option value="4">
+                April
+            </option>
+
+            <option value="5">
+                Mei
+            </option>
+
+            <option value="6">
+                Juni
+            </option>
+
+            <option value="7">
+                Juli
+            </option>
+
+            <option value="8">
+                Agustus
+            </option>
+
+            <option value="9">
+                September
+            </option>
+
+            <option value="10">
+                Oktober
+            </option>
+
+            <option value="11">
+                November
+            </option>
+
+            <option value="12">
+                Desember
+            </option>
+
+        </select>
+
+
+
+        <label>
+            Tahun
+        </label>
+
+
+        <input
+            type="number"
+            id="tahunIuran"
+            value="2026"
+            required
+        >
+
+
+
+        <label>
+            Nominal
+        </label>
+
+
+        <input
+            type="number"
+            id="nominalIuran"
+            value="20000"
+            readonly
+        >
+
+
+
+        <label>
+            Tanggal Pembayaran
+        </label>
+
+
+        <input
+            type="date"
+            id="tanggalIuran"
+            required
+        >
+
+
+
+        <button type="submit">
+            Simpan Iuran
+        </button>
+
+
+    </form>
+
+
+
+    <h3>
+        Riwayat Pembayaran
+    </h3>
+
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>No</th>
+
+                <th>Nama</th>
+
+                <th>Bulan</th>
+
+                <th>Tahun</th>
+
+                <th>Nominal</th>
+
+                <th>Tanggal</th>
+
+                <th>Aksi</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody
+            id="tabelIuran"
+        ></tbody>
+
+    </table>
+
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- ================= REKAP ========================= -->
+<!-- ================================================= -->
+
+<section
+    id="rekap"
+    class="halaman"
+    style="display:none;"
+>
+
+
+    <h2>
+        Rekap Iuran
+    </h2>
+
+
+
+    <label>
+        Tahun
+    </label>
+
+
+    <select
+        id="tahunRekap"
+        onchange="tampilkanRekap()"
+    >
+
+        <option value="2026">
+            2026
+        </option>
+
+        <option value="2027">
+            2027
+        </option>
+
+    </select>
+
+
+
+    <div class="dashboard-grid">
+
+
+        <div class="card">
+
+            <h3>
+                Total Tagihan
+            </h3>
+
+            <div
+                id="totalTagihan"
+                class="angka"
+            >
+                Rp0
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                Total Terbayar
+            </h3>
+
+            <div
+                id="totalTerbayar"
+                class="angka"
+            >
+                Rp0
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                Total Belum Bayar
+            </h3>
+
+            <div
+                id="totalBelumBayar"
+                class="angka"
+            >
+                Rp0
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>No</th>
+
+                <th>
+                    Nama KK
+                </th>
+
+                <th>Jan</th>
+                <th>Feb</th>
+                <th>Mar</th>
+                <th>Apr</th>
+                <th>Mei</th>
+                <th>Jun</th>
+                <th>Jul</th>
+                <th>Agu</th>
+                <th>Sep</th>
+                <th>Okt</th>
+                <th>Nov</th>
+                <th>Des</th>
+
+                <th>
+                    Terbayar
+                </th>
+
+                <th>
+                    Tunggakan
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody
+            id="tabelRekap"
+        ></tbody>
+
+    </table>
+
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- ================= PENGELUARAN =================== -->
+<!-- ================================================= -->
+
+<section
+    id="pengeluaran"
+    class="halaman"
+    style="display:none;"
+>
+
+
+    <h2>
+        Pengeluaran Kas
+    </h2>
+
+
+
+    <form
+        onsubmit="simpanPengeluaran(event)"
+    >
+
+
+        <label>
+            Tanggal
+        </label>
+
+
+        <input
+            type="date"
+            id="tanggalPengeluaran"
+            required
+        >
+
+
+
+        <label>
+            Keperluan
+        </label>
+
+
+        <input
+            type="text"
+            id="keperluanPengeluaran"
+            placeholder="Contoh: Pembelian lampu"
+            required
+        >
+
+
+
+        <label>
+            Kategori
+        </label>
+
+
+        <select
+            id="kategoriPengeluaran"
+        >
+
+            <option value="Kebersihan">
+                Kebersihan
+            </option>
+
+            <option value="Keamanan">
+                Keamanan
+            </option>
+
+            <option value="Sosial">
+                Sosial
+            </option>
+
+            <option value="Kegiatan">
+                Kegiatan
+            </option>
+
+            <option value="Administrasi">
+                Administrasi
+            </option>
+
+            <option value="Lainnya">
+                Lainnya
+            </option>
+
+        </select>
+
+
+
+        <label>
+            Nominal
+        </label>
+
+
+        <input
+            type="number"
+            id="nominalPengeluaran"
+            placeholder="Nominal"
+            required
+        >
+
+
+
+        <label>
+            Keterangan
+        </label>
+
+
+        <textarea
+            id="keteranganPengeluaran"
+            placeholder="Keterangan"
+        ></textarea>
+
+
+
+        <button type="submit">
+            Simpan Pengeluaran
+        </button>
+
+
+    </form>
+
+
+
+    <h3>
+        Riwayat Pengeluaran
+    </h3>
+
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>No</th>
+
+                <th>Tanggal</th>
+
+                <th>Keperluan</th>
+
+                <th>Kategori</th>
+
+                <th>Nominal</th>
+
+                <th>Keterangan</th>
+
+                <th>Aksi</th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody
+            id="tabelPengeluaran"
+        ></tbody>
+
+    </table>
+
+
+</section>
+
+
+
+<!-- ================================================= -->
+<!-- ================= BUKU KAS ====================== -->
+<!-- ================================================= -->
+
+<section
+    id="bukukas"
+    class="halaman"
+    style="display:none;"
+>
+
+
+    <h2>
+        📒 Buku Kas RT
+    </h2>
+
+
+
+    <label>
+        Tahun
+    </label>
+
+
+    <select
+        id="tahunBukuKas"
+        onchange="tampilkanBukuKas()"
+    >
+
+        <option value="2026">
+            2026
+        </option>
+
+        <option value="2027">
+            2027
+        </option>
+
+    </select>
+
+
+
+    <div class="dashboard-grid">
+
+
+        <div class="card">
+
+            <h3>
+                💰 Total Pemasukan
+            </h3>
+
+            <div
+                id="kasPemasukan"
+                class="angka"
+            >
+                Rp0
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                💸 Total Pengeluaran
+            </h3>
+
+            <div
+                id="kasPengeluaran"
+                class="angka"
+            >
+                Rp0
+            </div>
+
+        </div>
+
+
+
+        <div class="card">
+
+            <h3>
+                🏦 Saldo Akhir
+            </h3>
+
+            <div
+                id="kasSaldo"
+                class="angka"
+            >
+                Rp0
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+    <h3>
+        Mutasi Kas
+    </h3>
+
+
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>No</th>
+
+                <th>
+                    Tanggal
+                </th>
+
+                <th>
+                    Uraian
+                </th>
+
+                <th>
+                    Pemasukan
+                </th>
+
+                <th>
+                    Pengeluaran
+                </th>
+
+                <th>
+                    Saldo
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody
+            id="tabelBukuKas"
+        ></tbody>
+
+    </table>
+
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    <p>
+        Aplikasi Iuran RT 01 RW I -
+        Kelurahan Penarukan
+    </p>
+
+</footer>
+
+
+
+<script src="app.js"></script>
+
+
+</body>
+</html>

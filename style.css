@@ -1,0 +1,248 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+    color: #333;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    background: white;
+    min-height: 100vh;
+}
+
+header {
+    background: #1769aa;
+    color: white;
+    padding: 25px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+nav {
+    display: flex;
+    gap: 5px;
+    padding: 10px;
+    background: #eeeeee;
+    flex-wrap: wrap;
+}
+
+nav button {
+    border: none;
+    background: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+nav button:hover {
+    background: #1769aa;
+    color: white;
+}
+
+main {
+    padding: 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.card strong {
+    font-size: 25px;
+}
+
+.card p {
+    color: #777;
+}
+
+.info {
+    margin-top: 25px;
+    padding: 20px;
+    background: #f7f7f7;
+    border-radius: 10px;
+}
+
+.tombol {
+    background: #1769aa;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+
+@media (max-width: 700px) {
+
+    .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav button {
+        width: 100%;
+    }
+}
+.form-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+.form-box input {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.batal {
+    padding: 12px 20px;
+    border: none;
+    background: #777;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 25px;
+}
+
+table th,
+table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+table th {
+    background: #1769aa;
+    color: white;
+}
+
+.hapus {
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 7px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 700px) {
+
+    table {
+        font-size: 12px;
+    }
+
+    table th,
+    table td {
+        padding: 6px;
+    }
+}
+.form-box label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-box select,
+.form-box input {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background: white;
+}
+.filter-box {
+    margin-bottom: 20px;
+}
+
+.filter-box label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.filter-box select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.ringkasan {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.tabel-rekap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.tabel-rekap table {
+    min-width: 1300px;
+}
+
+.lunas {
+    color: green;
+    font-weight: bold;
+}
+
+.belum {
+    color: red;
+    font-weight: bold;
+}
+
+@media (max-width: 700px) {
+
+    .ringkasan {
+        grid-template-columns: 1fr;
+    }
+
+}
